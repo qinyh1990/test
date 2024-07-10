@@ -5,5 +5,29 @@ lxc launch mirror-images:ubuntu/23.10/cloud tf
  sudo ./NVIDIA-Linux-x86_64-550.100.run --no-kernel-module
  --no-opengl-files
 
-lxc config set <container-name> security.nesting true
-lxc config set <container-name> security.privileged true
+lxc config set tf security.nesting true
+lxc config set tf security.privileged true
+
+lxc config set tf security.nesting true
+lxc config set tf security.privileged true
+
+lxc launch ubuntu:18.04 docker -p default -p docker
+
+sudo apt-get install -y nvidia-container-toolkit
+
+{
+  "httpproxy": "http://10.100.15.69:20172",
+  "httpsproxy": "http://10.100.15.69:20172",
+}
+
+1.台湾节点
+2.docker 配置代理
+   sudo mkdir -p /etc/systemd/system/docker.service.d
+
+    vim /etc/systemd/system/docker.service.d/http-proxy.conf
+    
+[Service]
+Environment="HTTP_PROXY=10.100.15.69:20172"
+Environment="HTTPS_PROXY=10.100.15.69:20172"
+Environment="NO_PROXY=localhost,127.0.0.1"
+sudo systemctl daemon-reload
