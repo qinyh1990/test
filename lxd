@@ -1,0 +1,1 @@
+lxc config device add gpu0 gpu id=0
