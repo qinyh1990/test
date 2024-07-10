@@ -1,1 +1,9 @@
-lxc config device add gpu0 gpu id=0
+lxc config device add tf gpu gpu
+lxc config device add tf gpu gpu pci=84:00.0
+lxc config edit tf
+lxc launch mirror-images:ubuntu/23.10/cloud tf
+ sudo ./NVIDIA-Linux-x86_64-550.100.run --no-kernel-module
+ --no-opengl-files
+
+lxc config set <container-name> security.nesting true
+lxc config set <container-name> security.privileged true
