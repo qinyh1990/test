@@ -2,7 +2,7 @@ import requests
 import datetime
 
 # 目标URL
-url = "https://platform.arkhamintelligence.com/explorer/address/1AsHPP7WcGnDLzxW2bUa2FcbJP3eZVEqpx"
+url = "https://api.arkhamintelligence.com/portfolio/timeSeries/address/1AsHPP7WcGnDLzxW2bUa2FcbJP3eZVEqpx?pricingId=bitcoin"
 
 # 发出GET请求
 response = requests.get(url)
