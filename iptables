@@ -15,3 +15,10 @@ sudo iptables -t nat -A OUTPUT -p tcp -j REDSOCKS
   687  sudo systemctl start redsocks
   688  sudo systemctl enable redsocks
 sudo systemctl restart redsocks
+
+
+    sudo iptables -t nat -F REDSOCKS
+    sudo iptables -t nat -X REDSOCKS
+    sudo iptables -t nat -F REDSOCKS
+    sudo iptables -t nat -X REDSOCKS
+
